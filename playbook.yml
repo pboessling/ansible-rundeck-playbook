@@ -1,0 +1,9 @@
+---
+- name: Setup Rundeck
+  hosts: all
+  become: yes
+
+  roles:
+    - java
+    - rundeck
+    - httpd

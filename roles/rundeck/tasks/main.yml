@@ -1,0 +1,21 @@
+---
+- name: Install Rundeck yum repo
+  yum:
+    name: https://repo.rundeck.org/latest.rpm
+    state: present
+
+- name: Install Rundeck
+  yum:
+    name: "{{ rundeck_package }}"
+    state: present
+
+- name: Configure Rundeck external address
+  lineinfile:
+    path: /etc/rundeck/rundeck-config.properties
+    regexp: "^grails.serverURL="
+    line: "grails.serverURL={{ rundeck_external_address }}"
+
+- name: Start Rundeck
+  service:
+    name: rundeckd
+    state: started

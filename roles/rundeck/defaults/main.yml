@@ -1,0 +1,3 @@
+---
+rundeck_package: rundeck
+rundeck_external_address: http://localhost:4440

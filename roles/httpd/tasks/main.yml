@@ -1,0 +1,10 @@
+---
+- name: Install Httpd
+  yum:
+    name: "{{ httpd_package }}"
+    state: present
+
+- name: Start Httpd
+  service:
+    name: httpd
+    state: started
